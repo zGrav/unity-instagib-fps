@@ -55,7 +55,7 @@ public class PlayerMotor : MonoBehaviour {
 	void PerformRotation() {
 		rigidBody.MoveRotation (rigidBody.rotation * Quaternion.Euler(rotation));
 
-		if (cam != null) {
+		if (cam) {
 			currentCameraRotationX -= cameraRotationX;
 
 			currentCameraRotationX = Mathf.Clamp (currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);

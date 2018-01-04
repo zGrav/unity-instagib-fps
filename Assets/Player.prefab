@@ -248,6 +248,8 @@ GameObject:
   - component: {fileID: 114114797795317602}
   - component: {fileID: 114237947945399746}
   - component: {fileID: 114377524185598718}
+  - component: {fileID: 114698211541849290}
+  - component: {fileID: 114655634914544132}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2248,6 +2250,7 @@ MonoBehaviour:
   - {fileID: 114400577065046448}
   - {fileID: 20885042167435412}
   - {fileID: 81970150184753638}
+  remoteLayerName: RemotePlayer
 --- !u!114 &114237947945399746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2263,7 +2266,7 @@ MonoBehaviour:
   cam: {fileID: 20885042167435412}
   mask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967039
 --- !u!114 &114377524185598718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2276,7 +2279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: UBER-OMEGA-LEET-MLG-RAYGUN
-  weaponDamage: 10
+  weaponDamage: 100
   weaponRange: 300
 --- !u!114 &114400577065046448
 MonoBehaviour:
@@ -2323,6 +2326,32 @@ MonoBehaviour:
     i15: 249
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114655634914544132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353494008859574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6913815f60e94e80af227479078cd1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  disableOnRIP:
+  - {fileID: 114400577065046448}
+  - {fileID: 114237947945399746}
+--- !u!114 &114698211541849290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353494008859574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd6f85db350e466d8cfd335b31aa42f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114859053147568738
 MonoBehaviour:
   m_ObjectHideFlags: 1

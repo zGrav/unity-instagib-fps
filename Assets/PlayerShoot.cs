@@ -14,7 +14,7 @@ public class PlayerShoot : NetworkBehaviour {
 	private const string PLAYER = "Player";
 
 	void Start() {
-		if (cam == null) {
+		if (!cam) {
 			Debug.LogError ("PlayerShoot: No cam!");
 			this.enabled = false;
 		}
@@ -32,13 +32,16 @@ public class PlayerShoot : NetworkBehaviour {
 
 		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, weapon.weaponRange, mask)) {
 			if (hit.collider.tag == PLAYER) {
-				CmdPlayerHit (hit.collider.name);
+				CmdPlayerHit (hit.collider.name, weapon.weaponDamage);
 			}
 		}
 	}
 
 	[Command]
-	void CmdPlayerHit(string playerName) {
-		Debug.Log (playerName + " has been hit");
+	void CmdPlayerHit(string player, int damage) {
+		Debug.Log (player + " has been hit");
+
+		PlayerManager Player = GameManager.getPlayer (player);
+		Player.RpcTakeDamage (damage);
 	}
 }
