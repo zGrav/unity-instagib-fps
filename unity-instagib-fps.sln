@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unity-instagib-fps", "Assembly-CSharp-firstpass.csproj", "{8457A597-3E29-1FB2-C960-8B1FB421E99E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unity-instagib-fps", "Assembly-CSharp.csproj", "{4F889925-3CB7-4FFA-A681-5303E4F32786}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unity-instagib-fps", "Assembly-CSharp-Editor-firstpass.csproj", "{AFF0CD52-96BC-BA03-95BB-C89AB15B33DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8457A597-3E29-1FB2-C960-8B1FB421E99E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8457A597-3E29-1FB2-C960-8B1FB421E99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8457A597-3E29-1FB2-C960-8B1FB421E99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8457A597-3E29-1FB2-C960-8B1FB421E99E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F889925-3CB7-4FFA-A681-5303E4F32786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F889925-3CB7-4FFA-A681-5303E4F32786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F889925-3CB7-4FFA-A681-5303E4F32786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F889925-3CB7-4FFA-A681-5303E4F32786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFF0CD52-96BC-BA03-95BB-C89AB15B33DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFF0CD52-96BC-BA03-95BB-C89AB15B33DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFF0CD52-96BC-BA03-95BB-C89AB15B33DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFF0CD52-96BC-BA03-95BB-C89AB15B33DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
