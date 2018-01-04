@@ -1,1 +1,6 @@
 /Temp
+/Library/ShaderCache/
+/Library/ShaderDataCache/
+Library/PlayerDataCache/
+*.log
+*.app
