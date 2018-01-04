@@ -53,15 +53,6 @@
   <ItemGroup>
      <Compile Include="Assets\PlayerController.cs" />
      <Compile Include="Assets\PlayerMotor.cs" />
-     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
-     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
-     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
-     <Compile Include="Assets\SampleScenes\Scripts\CameraSwitch.cs" />
-     <Compile Include="Assets\SampleScenes\Scripts\LevelReset.cs" />
-     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
-     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
-     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
-     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Users/zgrav/Desktop/not_pwc/unity-instagib-fps/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
