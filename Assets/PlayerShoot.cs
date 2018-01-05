@@ -11,6 +11,9 @@ public class PlayerShoot : NetworkBehaviour {
 	[SerializeField]
 	private LayerMask mask;
 
+	[SerializeField]
+	private GameObject shootEffect;
+
 	private const string PLAYER = "Player";
 
 	void Start() {
@@ -29,6 +32,8 @@ public class PlayerShoot : NetworkBehaviour {
 	[Client]
 	void Fire() {
 		RaycastHit hit;
+
+		GameObject gfxIns = (GameObject)Instantiate (shootEffect, cam.transform.position, cam.transform.rotation, cam.transform);
 
 		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, weapon.weaponRange, mask)) {
 			if (hit.collider.tag == PLAYER) {

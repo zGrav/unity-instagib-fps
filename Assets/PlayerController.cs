@@ -2,7 +2,6 @@
 
 [RequireComponent(typeof(PlayerMotor))]
 
-
 public class PlayerController : MonoBehaviour {
 
 	[SerializeField]

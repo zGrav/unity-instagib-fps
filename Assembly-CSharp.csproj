@@ -51,6 +51,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BasicBeamShot\Script\AutoDestroy.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\BasicBullet.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\BeamCollision.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\BeamLine.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\BeamParam.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\BeamWave.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\BillBoard.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\BM_WaveEffect.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\Create_MyLineMesh.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\Flash.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\GeroBeam.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\GeroBeamHit.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\GetColor_BeamLine.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\GetColor_Flash.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\GetColor_Particle.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\JumpScene.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\MouseTgt.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\MultiShooter.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\RandomRotate.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\ScaleWiggle.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\SceneMaster.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\ShooterRotate.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\ShotBase.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\ShotParticle_Scale.cs" />
+     <Compile Include="Assets\BasicBeamShot\Script\ShotParticleEmitter.cs" />
      <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\MatchSettings.cs" />
      <Compile Include="Assets\PlayerController.cs" />
@@ -59,6 +84,13 @@
      <Compile Include="Assets\PlayerSetup.cs" />
      <Compile Include="Assets\PlayerShoot.cs" />
      <Compile Include="Assets\PlayerWeapon.cs" />
+     <None Include="Assets\BasicBeamShot\sh\Add_UVScroll_sh.shader" />
+     <None Include="Assets\BasicBeamShot\HowToUse_JP.txt" />
+     <None Include="Assets\BasicBeamShot\sh\Sprite_Add_sh.shader" />
+     <None Include="Assets\BasicBeamShot\sh\GeroBeam_sh.shader" />
+     <None Include="Assets\BasicBeamShot\sh\BeamLine_sh.shader" />
+     <None Include="Assets\BasicBeamShot\sh\AddColor_sh.shader" />
+     <None Include="Assets\BasicBeamShot\HowToUse_EN.txt" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Users/zgrav/Desktop/not_pwc/unity-instagib-fps/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
@@ -119,6 +151,12 @@
  <Reference Include="UnityEditor.VR">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
  </Reference>
+ <Reference Include="Vuforia.UnityExtensions.Editor">
+ <HintPath>/Applications/Unity/PlaybackEngines/VuforiaSupport/Managed/Editor/Vuforia.UnityExtensions.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Vuforia.UnityExtensions">
+ <HintPath>/Applications/Unity/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -127,6 +165,9 @@
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions">
  <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.AppleTV.Extensions">
+ <HintPath>/Applications/Unity/PlaybackEngines/AppleTVSupport/UnityEditor.AppleTV.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.WebGL.Extensions">
  <HintPath>/Applications/Unity/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
