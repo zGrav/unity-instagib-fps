@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using System.Collections;
 
+[RequireComponent(typeof(PlayerSetup))]
 public class PlayerManager : NetworkBehaviour {
 
 	[SerializeField]
@@ -20,6 +21,15 @@ public class PlayerManager : NetworkBehaviour {
 	[SerializeField]
 	private Behaviour[] disableOnRIP;
 	private bool[] wasEnabledAtTimeOfRIP;
+
+	[SerializeField]
+	private GameObject[] disableGameObjectsOnRIP;
+
+	[SerializeField]
+	private GameObject deathEffect;
+
+	[SerializeField]
+	private GameObject spawnEffect;
 
 	public void Setup() {
 		wasEnabledAtTimeOfRIP = new bool[disableOnRIP.Length];
@@ -40,11 +50,23 @@ public class PlayerManager : NetworkBehaviour {
 			disableOnRIP [i].enabled = wasEnabledAtTimeOfRIP [i];
 		}
 
+		for (int i = 0; i < disableGameObjectsOnRIP.Length; i++) {
+			disableGameObjectsOnRIP [i].SetActive (true);
+		}
+
 		Collider c = GetComponent<Collider> ();
 
 		if (!c) {
-			c.enabled = false;
+			c.enabled = true;
 		}
+
+		if (isLocalPlayer) {
+			GameManager.instance.setSceneCameraActive (false);
+			GetComponent<PlayerSetup> ().playerUIInstance.SetActive (true);
+		}
+
+		GameObject gfxIns = (GameObject)Instantiate (spawnEffect, transform.position, Quaternion.identity);
+		Destroy (gfxIns, 1f);
 	}
 
 	[ClientRpc]
@@ -69,10 +91,22 @@ public class PlayerManager : NetworkBehaviour {
 			disableOnRIP [i].enabled = false;
 		}
 
+		for (int i = 0; i < disableGameObjectsOnRIP.Length; i++) {
+			disableGameObjectsOnRIP [i].SetActive (false);
+		}
+
 		Collider c = GetComponent<Collider> ();
 
 		if (!c) {
 			c.enabled = false;
+		}
+
+		GameObject gfxIns = (GameObject)Instantiate (deathEffect, transform.position, Quaternion.identity);
+		Destroy (gfxIns, 3f);
+
+		if (isLocalPlayer) {
+			GameManager.instance.setSceneCameraActive (true);
+			GetComponent<PlayerSetup> ().playerUIInstance.SetActive (false);
 		}
 
 		Debug.Log (transform.name + " is RIP!");
@@ -83,11 +117,11 @@ public class PlayerManager : NetworkBehaviour {
 	private IEnumerator respawn() {
 		yield return new WaitForSeconds (GameManager.instance.matchSettings.respawnTime);
 
-		setDefaults();
-
 		Transform spawnPoint = NetworkManager.singleton.GetStartPosition ();
 		transform.position = spawnPoint.position;
 		transform.rotation = spawnPoint.rotation;
+
+		setDefaults();
 
 		Debug.Log (transform.name + " - RESPAWN!");
 	}

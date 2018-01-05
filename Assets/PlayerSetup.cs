@@ -11,17 +11,18 @@ public class PlayerSetup : NetworkBehaviour {
 	[SerializeField]
 	private string remoteLayerName = "RemotePlayer";
 
-	private Camera sceneCamera;
+	[SerializeField]
+	private GameObject playerUIPrefab;
+	[HideInInspector]
+	public GameObject playerUIInstance;
 
 	void Start() {
 		if (!isLocalPlayer) {
 			doDisableComponents ();
 			doAssignRemoteLayer ();
 		} else {
-			sceneCamera = Camera.main;
-			if (sceneCamera) {
-				sceneCamera.gameObject.SetActive (false);
-			}
+			playerUIInstance = Instantiate (playerUIPrefab);
+			playerUIInstance.name = playerUIPrefab.name;
 		}
 
 		GetComponent<PlayerManager> ().Setup ();
@@ -47,9 +48,9 @@ public class PlayerSetup : NetworkBehaviour {
 	}
 
 	void onDisable() {
-		if (sceneCamera) {
-			sceneCamera.gameObject.SetActive (true);
-		}
+		Destroy (playerUIInstance);
+
+		GameManager.instance.setSceneCameraActive (true);
 
 		GameManager.deletePlayer (transform.name);
 	}
