@@ -23,9 +23,9 @@ public class PlayerSetup : NetworkBehaviour {
 		} else {
 			playerUIInstance = Instantiate (playerUIPrefab);
 			playerUIInstance.name = playerUIPrefab.name;
-		}
 
-		GetComponent<PlayerManager> ().Setup ();
+			GetComponent<PlayerManager> ().Setup ();
+		}
 	}
 
 	public override void OnStartClient() {
@@ -50,8 +50,10 @@ public class PlayerSetup : NetworkBehaviour {
 	void onDisable() {
 		Destroy (playerUIInstance);
 
-		GameManager.instance.setSceneCameraActive (true);
-
+		if (isLocalPlayer) {
+			GameManager.instance.setSceneCameraActive (true);
+		}
+			
 		GameManager.deletePlayer (transform.name);
 	}
 }

@@ -31,11 +31,33 @@ public class PlayerManager : NetworkBehaviour {
 	[SerializeField]
 	private GameObject spawnEffect;
 
-	public void Setup() {
-		wasEnabledAtTimeOfRIP = new bool[disableOnRIP.Length];
+	private bool isFirstSetup = true;
 
-		for (int i = 0; i < wasEnabledAtTimeOfRIP.Length; i++) {
-			wasEnabledAtTimeOfRIP [i] = disableOnRIP [i].enabled;
+	public void Setup() {
+		if (isLocalPlayer) {
+			GameManager.instance.setSceneCameraActive (false);
+			GetComponent<PlayerSetup> ().playerUIInstance.SetActive (true);
+		}
+
+		CmdNewPlayer ();
+	}
+
+	[Command]
+	private void CmdNewPlayer() {
+		RpcNewPlayer ();
+	}
+
+	[ClientRpc]
+	private void RpcNewPlayer() {
+
+		if (isFirstSetup) {
+			wasEnabledAtTimeOfRIP = new bool[disableOnRIP.Length];
+
+			for (int i = 0; i < wasEnabledAtTimeOfRIP.Length; i++) {
+				wasEnabledAtTimeOfRIP [i] = disableOnRIP [i].enabled;
+			}
+
+			isFirstSetup = false;
 		}
 
 		setDefaults ();
@@ -58,11 +80,6 @@ public class PlayerManager : NetworkBehaviour {
 
 		if (!c) {
 			c.enabled = true;
-		}
-
-		if (isLocalPlayer) {
-			GameManager.instance.setSceneCameraActive (false);
-			GetComponent<PlayerSetup> ().playerUIInstance.SetActive (true);
 		}
 
 		GameObject gfxIns = (GameObject)Instantiate (spawnEffect, transform.position, Quaternion.identity);
@@ -121,7 +138,9 @@ public class PlayerManager : NetworkBehaviour {
 		transform.position = spawnPoint.position;
 		transform.rotation = spawnPoint.rotation;
 
-		setDefaults();
+		yield return new WaitForSeconds (1f);
+
+		Setup();
 
 		Debug.Log (transform.name + " - RESPAWN!");
 	}
